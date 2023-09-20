@@ -138,59 +138,6 @@ export default {
       </div>
     </section>
 
-    <!-- <section class="mb-4">
-      <div class="container">
-        <div class="row g-2 youtube">
-          <div class="col-8">
-            <div class="video-yt">
-              <AppCardMatte />
-              <div class="video-icon">
-                <div class="video-title">
-                  <h2>titolo video</h2>
-                  <div class="d-flex">
-                    <div class="me-3">
-                      <i>icona</i>
-                      <p>parola</p>
-                    </div>
-                    <div class="me-3">
-                      <i>icona</i>
-                      <p>parola</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div>youtube</div>
-              </div>
-              <div class="play-video">play</div>
-            </div>
-          </div>
-
-          <div class="col-4 d-flex flex-column h-100">
-            <div class="d-flex">
-              <i>icona</i>
-              <div>
-                <h4>Video Playlist</h4>
-                <p>1/7 Videos</p>
-              </div>
-            </div>
-            <div v-for="index in 5">
-              <div class="playlist-yt">
-                {{ index }}
-                <div class="playlist-yt-img">
-                  <AppCardMatte />
-                </div>
-                <div class="playlist-yt-text">
-                  <p>cose varie bla asd asd asd</p>
-                  <h5>scritta</h5>
-                </div>
-              </div>
-              <div v-if="index != 5" class="border"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <section class="mt-5">
       <div class="d-flex p-3">
         <div v-for="n in 6" :class="n != 1 || n != 6 ? 'card-margin' : ''">
