@@ -86,35 +86,115 @@ export default {
         </div>
       </div>
     </section>
-
-    <section class="mb-4">
+    <!-- sezione video yt -->
+    <section>
       <div class="container">
-        <div class="row g-2">
+        <div class="d-flex">
+          <div class="yt-video">
+            <img src="../../public/img/sddefault.webp" alt="" />
+            <div class="yt-video-icon">
+              <div class="yt-title">
+                <h2>titolo video</h2>
+                <div class="d-flex">
+                  <div class="me-3">
+                    <i>icona</i>
+                    <p>parola</p>
+                  </div>
+                  <div class="me-3">
+                    <i>icona</i>
+                    <p>parola</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-auto p-3">youtube</div>
+            </div>
+
+            <div class="yt-play">play</div>
+          </div>
+
+          <div class="play-aside">
+            <div class="play-list-numTot">
+              <div>ICONA</div>
+              <div>
+                <h4>Video Playlist</h4>
+                <p>1/7 Videos</p>
+              </div>
+            </div>
+            <div class="play-songs">
+              <div v-for="index in 5">
+                <div class="song">
+                  <div>{{ index }}</div>
+                  <img src="../assets/img/default.webp" alt="" />
+                  <div class="song-title">
+                    <p class="song-title">Overload season 4 - Official</p>
+                    <p>Trailer 3 | AniTV</p>
+                  </div>
+                </div>
+                <div v-if="index != 5" class="border"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="mb-4">
+      <div class="container">
+        <div class="row g-2 youtube">
           <div class="col-8">
             <div class="video-yt">
               <AppCardMatte />
               <div class="video-icon">
-                <div>h2</div>
-                <div></div>
-                <div></div>
+                <div class="video-title">
+                  <h2>titolo video</h2>
+                  <div class="d-flex">
+                    <div class="me-3">
+                      <i>icona</i>
+                      <p>parola</p>
+                    </div>
+                    <div class="me-3">
+                      <i>icona</i>
+                      <p>parola</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>youtube</div>
               </div>
+              <div class="play-video">play</div>
             </div>
           </div>
 
           <div class="col-4 d-flex flex-column h-100">
-            <div v-for="index in 3">
-              <div class="small-card">
-                <div class="small-card-img">
+            <div class="d-flex">
+              <i>icona</i>
+              <div>
+                <h4>Video Playlist</h4>
+                <p>1/7 Videos</p>
+              </div>
+            </div>
+            <div v-for="index in 5">
+              <div class="playlist-yt">
+                {{ index }}
+                <div class="playlist-yt-img">
                   <AppCardMatte />
                 </div>
-                <div class="small-card-text">
+                <div class="playlist-yt-text">
                   <p>cose varie bla asd asd asd</p>
                   <h5>scritta</h5>
                 </div>
               </div>
-              <div v-if="index != 3" class="border"></div>
+              <div v-if="index != 5" class="border"></div>
             </div>
           </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="mt-5">
+      <div class="d-flex p-3">
+        <div v-for="n in 6" :class="n != 1 || n != 6 ? 'card-margin' : ''">
+          <AppCardMatte />
         </div>
       </div>
     </section>
@@ -165,8 +245,8 @@ export default {
   }
 }
 .border {
-  margin: 15px 0;
-  // display: block;
+  margin: 10px 0;
+
   height: 3px;
   width: 100%;
   content: "";
@@ -180,15 +260,124 @@ export default {
     margin: 20px 0;
   }
 }
-.video-yt {
-  position: relative;
+//sezione video yt
+.yt {
+  height: 500px;
 }
-.video-icon {
+.yt-video {
+  position: relative;
+  color: white;
+  width: 70%;
+  height: 500px;
+  img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.yt-video-icon,
+.yt-play {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
 }
+.yt-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.yt-video-icon {
+  display: flex;
+  flex-direction: column;
+}
+.yt-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+.play-aside {
+  width: 30%;
+}
+.play-list-numTot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #333333;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  height: 80px;
+  * {
+    margin: 0;
+  }
+}
+.play-songs {
+  height: 420px;
+  overflow: auto;
+}
+.song {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  img {
+    width: 80px;
+    border-radius: 5px;
+  }
+  .song-title {
+    p {
+      margin: 0;
+      font-size: small;
+    }
+  }
+}
+// .youtube {
+//   height: 520px;
+// }
+// .video-yt {
+//   position: relative;
+// }
+// .video-icon {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 5px;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   color: white;
+
+//   display: flex;
+//   align-content: space-between;
+//   flex-wrap: wrap;
+//   .video-title {
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
+// .play-video {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 100%;
+//   color: white;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .playlist-yt {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   overflow: auto;
+//   .playlist-yt-img {
+//     width: 30%;
+//   }
+// }
 </style>

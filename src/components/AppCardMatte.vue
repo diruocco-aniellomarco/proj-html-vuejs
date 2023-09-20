@@ -7,6 +7,7 @@
       <h2>scritte</h2>
       <p>altre cose</p>
     </div>
+    <!-- avrà un v-if, sotto non deve comparire-->
     <div class="label-tag">
       <!-- il label avrà un v-for per contare quante etichette ci sono -->
       <label for="#">Food</label>
