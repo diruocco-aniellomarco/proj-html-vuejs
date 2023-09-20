@@ -3,7 +3,7 @@
 <template>
   <div class="card-matte">
     <img src="../../public/img/best-places.webp" alt="" />
-    <div class="text-card-matte prova">
+    <div class="text-card-matte">
       <h2>scritte</h2>
       <p>altre cose</p>
     </div>
@@ -28,6 +28,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    right: 0;
+    left: 0;
     display: flex;
     justify-content: end;
     align-items: center;
