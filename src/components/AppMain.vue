@@ -63,6 +63,48 @@ export default {
         "hqdefault6.jpg",
         "hqdefault7.jpg",
       ],
+      articlesView: [
+        {
+          id: 0,
+          img: "anime-fashion.webp",
+          title: "Fashion trend Now A Day",
+          date: "December 25, 2022",
+
+          label: ["Fashion", "Lifestyle"],
+        },
+        {
+          id: 1,
+          img: "travel-alone.webp",
+          title: "Traveling Alone Is Awesome",
+          date: "December 26, 2022",
+
+          label: ["Stories", "Travel"],
+        },
+        {
+          id: 2,
+          img: "best-places.webp",
+          title: "Place For A Road Trip",
+          date: "December 25, 2022",
+
+          label: ["Lifestyle", "Stories", "Travel"],
+        },
+        {
+          id: 3,
+          img: "music-love.webp",
+          title: "Music The Love Of My Life",
+          date: "December 25, 2022",
+
+          label: ["Culture", "Lifestyle"],
+        },
+        {
+          id: 4,
+          img: "visit-france.webp",
+          title: "Reasons To Visit France",
+          date: "December 26, 2022",
+
+          label: ["Lifestyle", "Travel"],
+        },
+      ],
     };
   },
 
@@ -102,21 +144,55 @@ export default {
         </div>
       </div>
     </section>
-
+    <!-- ARTICOL VIEW -->
     <section>
       <div class="container">
         <div class="row articles-view">
-          <div
-            v-for="index in 3"
-            :class="index != 2 ? 'col-3 articles' : 'col-6'"
-          >
-            <AppCardMatte />
-            <AppCardMatte v-if="index != 2" />
+          <div class="col-3 articles">
+            <AppCardMatte
+              :img="articlesView[0].img"
+              :date="articlesView[0].date"
+              :title="articlesView[0].title"
+              :label="articlesView[0].label"
+              :texts="true"
+            />
+            <AppCardMatte
+              :img="articlesView[1].img"
+              :date="articlesView[1].date"
+              :title="articlesView[1].title"
+              :label="articlesView[1].label"
+              :texts="true"
+            />
+          </div>
+          <div class="col-6">
+            <AppCardMatte
+              :img="articlesView[2].img"
+              :date="articlesView[2].date"
+              :title="articlesView[2].title"
+              :label="articlesView[2].label"
+              :texts="true"
+            />
+          </div>
+          <div class="col-3 articles">
+            <AppCardMatte
+              :img="articlesView[3].img"
+              :date="articlesView[3].date"
+              :title="articlesView[3].title"
+              :label="articlesView[3].label"
+              :texts="true"
+            />
+            <AppCardMatte
+              :img="articlesView[4].img"
+              :date="articlesView[4].date"
+              :title="articlesView[4].title"
+              :label="articlesView[4].label"
+              :texts="true"
+            />
           </div>
         </div>
       </div>
     </section>
-
+    <!-- LIFESTYLE & STORIES -->
     <section class="mb-4">
       <div class="container">
         <div class="row">
@@ -130,14 +206,24 @@ export default {
         </div>
         <div class="row g-2">
           <div class="col-8">
-            <AppCardMatte />
+            <AppCardMatte
+              :img="'success-story.webp'"
+              :date="articlesView[0].date"
+              :title="articlesView[0].title"
+              :label="['culture']"
+              :texts="true"
+            />
           </div>
 
           <div class="col-4 d-flex flex-column h-100">
             <div v-for="index in 3">
               <div class="small-card">
                 <div class="small-card-img">
-                  <AppCardMatte />
+                  <AppCardMatte
+                    :img="articlesView[0].img"
+                    :label="articlesView[0].label"
+                    :texts="false"
+                  />
                 </div>
                 <div class="small-card-text">
                   <p>cose varie bla asd asd asd</p>
@@ -268,6 +354,7 @@ export default {
   .articles {
     display: flex;
     flex-direction: column;
+
     justify-content: space-between;
   }
 }

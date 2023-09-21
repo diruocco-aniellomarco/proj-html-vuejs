@@ -25,6 +25,8 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { faShare } from "@fortawesome/free-solid-svg-icons";
 
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faSquareInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -47,7 +49,8 @@ library.add(
   faMagnifyingGlass,
   faClock,
   faShare,
-  faYoutube
+  faYoutube,
+  faCalendarDays
 );
 
 const app = createApp(App);

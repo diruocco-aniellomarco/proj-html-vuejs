@@ -1,17 +1,38 @@
-<script></script>
+<script>
+export default {
+  props: {
+    img: String,
+    title: String,
+    date: String,
+    text: String,
+    texts: Boolean,
+    label: Array,
+    index: Number,
+  },
+  methods: {
+    imageGenerate(imageName) {
+      const imageUrl = new URL("../assets/img/" + imageName, import.meta.url);
+
+      return imageUrl.href;
+    },
+  },
+};
+</script>
 
 <template>
   <div class="card-matte">
-    <img src="../../public/img/best-places.webp" alt="" />
+    <img :src="imageGenerate(img)" />
     <div class="text-card-matte">
-      <h2>scritte</h2>
-      <p>altre cose</p>
+      <p v-if="texts" class="m-0">
+        <font-awesome-icon icon="fa-solid fa-user" /> <span>Demo </span
+        ><font-awesome-icon icon="fa-solid fa-calendar-days" /> {{ date }}
+      </p>
+      <p v-if="texts">{{ title }}</p>
     </div>
     <!-- avrà un v-if, sotto non deve comparire-->
     <div class="label-tag">
       <!-- il label avrà un v-for per contare quante etichette ci sono -->
-      <label for="#">Food</label>
-      <label for="#">Food</label>
+      <label v-for="tag in label" for="#">{{ tag }}</label>
     </div>
   </div>
 </template>
@@ -40,10 +61,11 @@
   }
   .label-tag {
     position: absolute;
-    top: 0;
+    top: 10px;
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: 10px;
   }
 }
 
@@ -51,5 +73,13 @@
 .text-card-matte,
 .card-matte > img {
   border-radius: 5px;
+}
+
+label {
+  border-radius: 5px;
+  background-color: #fbfffc;
+  padding: 0 20px;
+  padding-bottom: 2px;
+  margin: 0;
 }
 </style>
