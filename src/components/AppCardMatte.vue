@@ -61,6 +61,7 @@ export default {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
   }
+  // per posizionare il testo sulla sinistra
   .text-start {
     position: absolute;
     top: 0;

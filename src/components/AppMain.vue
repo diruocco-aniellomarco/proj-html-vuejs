@@ -114,6 +114,14 @@ export default {
           label: ["Culture"],
         },
       ],
+      articlesType: [
+        { img: "anime-fashion.webp", title: "FASHION" },
+        { img: "success-story.webp", title: "CULTURE" },
+        { img: "healthy-foods.webp", title: "FOOD" },
+        { img: "visit-france.webp", title: "LIFESTYLE" },
+        { img: "travel-alone.webp", title: "STORIES" },
+        { img: "best-places.webp", title: "TRAVEL" },
+      ],
     };
   },
 
@@ -261,13 +269,16 @@ export default {
         </div>
       </div>
     </section>
-
+    <!-- FEAUTURED POSTS -->
     <section class="mb-4">
       <div class="container">
         <div class="row">
           <h2 class="col-6 align-items-center">FEAUTURED POSTS</h2>
 
-          <div class="col-6 right-title"><i> freccia </i> <i> freccia </i></div>
+          <div class="col-6 right-title arrow-featured">
+            <font-awesome-icon icon="fa-solid fa-chevron-left" />
+            <font-awesome-icon icon="fa-solid fa-chevron-right" />
+          </div>
         </div>
         <div class="d-flex justify-content-between">
           <div
@@ -353,8 +364,11 @@ export default {
 
     <section class="mt-5">
       <div class="d-flex p-3">
-        <div v-for="n in 6" :class="n != 1 || n != 6 ? 'card-margin' : ''">
-          <AppCardMatte />
+        <div
+          v-for="article in articlesType"
+          :class="n != 1 || n != 6 ? 'card-margin' : ''"
+        >
+          <AppCardMatte :img="article.img" :title="article.title" />
         </div>
       </div>
     </section>
@@ -390,7 +404,15 @@ export default {
     color: white;
   }
 }
-
+.arrow-featured {
+  * {
+    padding: 10px;
+    color: white;
+    background-color: #343434;
+    border-radius: 50%;
+    margin: 0 10px;
+  }
+}
 .small-card {
   display: flex;
   .small-card-img {
