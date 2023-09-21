@@ -104,6 +104,15 @@ export default {
 
           label: ["Lifestyle", "Travel"],
         },
+        {
+          id: 5,
+          img: "success-story.webp",
+          title: "The Beast success story",
+          date: "December 26, 2022",
+          labelStart: true,
+          textStart: true,
+          label: ["Culture"],
+        },
       ],
     };
   },
@@ -205,32 +214,40 @@ export default {
           </div>
         </div>
         <div class="row g-2">
-          <div class="col-8">
+          <div class="col-7 lifestyle-img">
             <AppCardMatte
-              :img="'success-story.webp'"
-              :date="articlesView[0].date"
-              :title="articlesView[0].title"
-              :label="['culture']"
+              :img="articlesView[5].img"
+              :date="articlesView[5].date"
+              :title="articlesView[5].title"
+              :label="articlesView[5].label"
+              :labelStart="articlesView[5].labelStart"
+              :textStart="articlesView[5].textStart"
               :texts="true"
             />
           </div>
 
           <div class="col-4 d-flex flex-column h-100">
-            <div v-for="index in 3">
-              <div class="small-card">
+            <div v-for="(article, index) in articlesView">
+              <div
+                v-if="index == 1 || index == 2 || index == 3"
+                class="small-card"
+              >
                 <div class="small-card-img">
-                  <AppCardMatte
-                    :img="articlesView[0].img"
-                    :label="articlesView[0].label"
-                    :texts="false"
-                  />
+                  <AppCardMatte :img="article.img" :texts="false" />
                 </div>
                 <div class="small-card-text">
-                  <p>cose varie bla asd asd asd</p>
-                  <h5>scritta</h5>
+                  <p class="m-0">
+                    <font-awesome-icon icon="fa-solid fa-user" />
+                    <span>Demo </span
+                    ><font-awesome-icon icon="fa-solid fa-calendar-days" />
+                    {{ article.date }}
+                  </p>
+                  <p :class="index == 3 ? 'text-danger' : ''">
+                    {{ article.title }}
+                  </p>
                 </div>
               </div>
-              <div v-if="index != 3" class="border"></div>
+              <div v-if="index == 1 || index == 2" class="border"></div>
             </div>
           </div>
         </div>
@@ -373,6 +390,7 @@ export default {
     color: white;
   }
 }
+
 .small-card {
   display: flex;
   .small-card-img {
@@ -382,6 +400,7 @@ export default {
     padding-left: 10px;
     * {
       margin: 0;
+      font-size: small;
     }
     display: flex;
     justify-content: center;

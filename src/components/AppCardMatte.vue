@@ -8,6 +8,8 @@ export default {
     texts: Boolean,
     label: Array,
     index: Number,
+    labelStart: Boolean,
+    textStart: Boolean,
   },
   methods: {
     imageGenerate(imageName) {
@@ -22,7 +24,7 @@ export default {
 <template>
   <div class="card-matte">
     <img :src="imageGenerate(img)" />
-    <div class="text-card-matte">
+    <div :class="textStart ? 'text-start' : 'text-card-matte'">
       <p v-if="texts" class="m-0">
         <font-awesome-icon icon="fa-solid fa-user" /> <span>Demo </span
         ><font-awesome-icon icon="fa-solid fa-calendar-days" /> {{ date }}
@@ -30,7 +32,7 @@ export default {
       <p v-if="texts">{{ title }}</p>
     </div>
     <!-- avrà un v-if, sotto non deve comparire-->
-    <div class="label-tag">
+    <div :class="labelStart ? 'label-start' : 'label-tag'">
       <!-- il label avrà un v-for per contare quante etichette ci sono -->
       <label v-for="tag in label" for="#">{{ tag }}</label>
     </div>
@@ -59,6 +61,23 @@ export default {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
   }
+  .text-start {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: end;
+
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    * {
+      margin-left: 10px;
+    }
+  }
   .label-tag {
     position: absolute;
     top: 10px;
@@ -68,7 +87,15 @@ export default {
     gap: 10px;
   }
 }
+.label-start {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 .label-tag,
 .text-card-matte,
 .card-matte > img {
