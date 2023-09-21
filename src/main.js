@@ -29,6 +29,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faSquareInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faSquareYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 library.add(
   faChevronLeft,
   faChevronRight,
@@ -45,7 +46,8 @@ library.add(
   faAngleDown,
   faMagnifyingGlass,
   faClock,
-  faShare
+  faShare,
+  faYoutube
 );
 
 const app = createApp(App);

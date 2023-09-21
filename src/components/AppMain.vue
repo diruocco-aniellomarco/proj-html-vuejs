@@ -199,20 +199,27 @@ export default {
                 </div>
 
                 <div class="d-flex">
-                  <div class="me-3">
+                  <div class="me-3 text-center">
                     <font-awesome-icon icon="fa-solid fa-clock" />
                     <p>Guarda più...</p>
                   </div>
-                  <div class="me-3">
+                  <div class="me-3 text-center">
                     <font-awesome-icon icon="fa-solid fa-share" />
                     <p>Condividi</p>
                   </div>
                 </div>
               </div>
-              <div class="mt-auto p-3">youtube</div>
+              <div class="mt-auto">
+                <div class="look-on-yt">
+                  Guarda su
+                  <font-awesome-icon icon="fa-brands fa-youtube" /> YouTube
+                </div>
+              </div>
             </div>
 
-            <div class="yt-play">play</div>
+            <div class="yt-play">
+              <font-awesome-icon icon="fa-brands fa-youtube" />
+            </div>
           </div>
 
           <div class="play-aside">
@@ -348,11 +355,19 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.look-on-yt {
+  background-color: #121212;
+  padding: 10px;
+  margin-bottom: 5px;
+  width: 200px;
+  font-weight: bold;
+}
 .yt-play {
   display: flex;
   justify-content: center;
   align-items: center;
   color: red;
+  font-size: 50px;
 }
 .play-aside {
   width: 30%;
