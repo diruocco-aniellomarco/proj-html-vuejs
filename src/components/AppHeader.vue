@@ -159,7 +159,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 20px;
 
   // cursor: pointer;
 }
