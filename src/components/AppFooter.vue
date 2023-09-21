@@ -1,15 +1,41 @@
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      dataFooter: [
+        {
+          title: "GET STARTED",
+          link: ["Resources", "Tutorials", "Examples", "Docs"],
+        },
+        {
+          title: "ABOUT",
+          link: ["Stories", "Community", "Blog", "Brand Assets"],
+        },
+        {
+          title: "FEATURES",
+          link: ["Overview", "Design", "Code", "Collaborate"],
+        },
+        {
+          title: "QUICK LINKS",
+          link: ["Stories", "Community", "Blog", "Brand Assets"],
+        },
+      ],
+    };
+  },
+};
+</script>
 
 <template>
   <footer>
     <div class="container">
-      <div class="row mt-4 mb-4">
-        <div v-for="x in 4" class="col">
-          <div v-for="index in 5">
-            <h5 v-if="index == 1">Set Started</h5>
-            <p v-else class="m-0">ciao</p>
+      <div class="row mt-4 mb-5">
+        <div v-for="data in dataFooter" class="col">
+          <div v-for="(link, index) in data.link">
+            <h5 v-if="index == 0">{{ data.title }}</h5>
+            <a class="m-0">{{ link }}</a>
           </div>
         </div>
+
         <div class="col-3">
           <h5>SUBSCRIBES IN NEWS LETTER</h5>
           <div class="mb-3">
