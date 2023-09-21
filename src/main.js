@@ -22,6 +22,9 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faShare } from "@fortawesome/free-solid-svg-icons";
+
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faSquareInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -40,7 +43,9 @@ library.add(
   faBook,
   faUser,
   faAngleDown,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faClock,
+  faShare
 );
 
 const app = createApp(App);

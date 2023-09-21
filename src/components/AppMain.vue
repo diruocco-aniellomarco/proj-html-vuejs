@@ -2,16 +2,103 @@
 import AppCardImg from "./AppCardImg.vue";
 import AppCardMatte from "./AppCardMatte.vue";
 export default {
+  data() {
+    return {
+      caroselView: [
+        {
+          id: 0,
+          img: "healthy-foods.webp",
+          title: "The Best Healthy Food In 2022",
+          date: "December 26, 2022",
+          text: "",
+          label: ["Food"],
+        },
+        {
+          id: 1,
+          img: "winter.webp",
+          title: "The Best Winter Outfits",
+          date: "December 26, 2022",
+          text: "",
+          label: ["Fashion"],
+        },
+        {
+          id: 2,
+          img: "photographers-mistakes.webp",
+          title: "Beginner Photographr's Mistakes",
+          date: "December 26, 2022",
+          text: "",
+          label: ["Fashion"],
+        },
+        {
+          id: 3,
+          img: "ideas-anime.webp",
+          title: "Live Ideas You Might Be Anime",
+          date: "December 26, 2022",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nemo",
+          label: ["Culture", "Stories"],
+        },
+        {
+          id: 4,
+          img: "visit-france.webp",
+          title: "Reasons To Visit France",
+          date: "December 26, 2022",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nemo",
+          label: ["Lifestyle", "Travel"],
+        },
+        {
+          id: 5,
+          img: "travel-alone.webp",
+          title: "Traveling Alone Is Awesome",
+          date: "December 26, 2022",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nemo",
+          label: ["Stories", "Travel"],
+        },
+      ],
+      trailers: [
+        "hqdefaul1t.jpg",
+        "hqdefault2.jpg",
+        "hqdefault3.jpg",
+        "hqdefault4.jpg",
+        "hqdefault5.jpg",
+        "hqdefault6.jpg",
+        "hqdefault7.jpg",
+      ],
+    };
+  },
+
   components: { AppCardImg, AppCardMatte },
+  methods: {
+    imageGenerate(imageName) {
+      const imageUrl = new URL(
+        "../assets/img/trailer/" + imageName,
+        import.meta.url
+      );
+
+      return imageUrl.href;
+    },
+  },
 };
 </script>
 
 <template>
   <main>
+    <!-- caroselView -->
     <section>
       <div class="d-flex p-3 bg-color">
-        <div v-for="n in 4" :class="n != 1 || n != 4 ? 'card-margin' : ''">
-          <AppCardImg />
+        <div class="d-flex">
+          <div
+            v-for="(cardItem, index) in caroselView"
+            :class="index != 0 || index != 3 ? 'card-margin' : ''"
+          >
+            <AppCardImg
+              v-show="index < 4"
+              :key="cardItem.id"
+              :title="cardItem.title"
+              :img="cardItem.img"
+              :date="cardItem.date"
+              :label="cardItem.label"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -80,8 +167,20 @@ export default {
           <div class="col-6 right-title"><i> freccia </i> <i> freccia </i></div>
         </div>
         <div class="d-flex justify-content-between">
-          <div v-for="n in 3" :class="n == 2 ? 'card-margin' : ''">
-            <AppCardImg />
+          <div
+            v-for="(cardItem, index) in caroselView"
+            :class="index == 3 || index == 4 ? 'card-margin' : ''"
+          >
+            <AppCardImg
+              v-show="index > 2"
+              :key="cardItem.id"
+              :title="cardItem.title"
+              :img="cardItem.img"
+              :date="cardItem.date"
+              :text="cardItem.text"
+              :button="true"
+              :label="cardItem.label"
+            />
           </div>
         </div>
       </div>
@@ -94,15 +193,19 @@ export default {
             <img src="../../public/img/sddefault.webp" alt="" />
             <div class="yt-video-icon">
               <div class="yt-title">
-                <h2>titolo video</h2>
+                <div class="d-flex align-items-center">
+                  <img src="../../public/img/channels4_profile.jpg" alt="" />
+                  <h5>Overload season 4 - Official Trailer 3 | AniTv</h5>
+                </div>
+
                 <div class="d-flex">
                   <div class="me-3">
-                    <i>icona</i>
-                    <p>parola</p>
+                    <font-awesome-icon icon="fa-solid fa-clock" />
+                    <p>Guarda più...</p>
                   </div>
                   <div class="me-3">
-                    <i>icona</i>
-                    <p>parola</p>
+                    <font-awesome-icon icon="fa-solid fa-share" />
+                    <p>Condividi</p>
                   </div>
                 </div>
               </div>
@@ -121,16 +224,16 @@ export default {
               </div>
             </div>
             <div class="play-songs">
-              <div v-for="index in 5">
+              <div v-for="(trailer, index) in trailers">
                 <div class="song">
-                  <div>{{ index }}</div>
-                  <img src="../assets/img/default.webp" alt="" />
+                  <div>{{ index + 1 }}</div>
+                  <img :src="imageGenerate(trailer)" alt="" />
                   <div class="song-title">
                     <p class="song-title">Overload season 4 - Official</p>
                     <p>Trailer 3 | AniTV</p>
                   </div>
                 </div>
-                <div v-if="index != 5" class="border"></div>
+                <div v-if="index != trailers.length - 1" class="border"></div>
               </div>
             </div>
           </div>
@@ -233,6 +336,13 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    aspect-ratio: 1;
+  }
 }
 .yt-video-icon {
   display: flex;
